@@ -1,4 +1,4 @@
-# Oranos
+# oranos
 
 A new Flutter project.
 
