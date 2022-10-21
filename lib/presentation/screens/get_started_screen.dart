@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:oranos/business%20logic/get_started_screen_logic/chat_cubit.dart';
 import 'package:oranos/data/models/app_colors.dart';
 import 'package:oranos/presentation/widgets/user_msg_widget.dart';
-
 import '../../data/models/app_routes.dart';
 import '../widgets/text_form_field_widget.dart';
 
@@ -39,10 +38,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   SizedBox(
                     height: 830.h,
                     child: ListView.builder(
-                      addAutomaticKeepAlives: true,
-                        controller: scrollController,
-                        itemBuilder: (context, index) =>
-                            chatCubit.messages[index],
+                        itemBuilder: (context, index) => chatCubit.messages[index],
                         itemCount: chatCubit.messages.length),
                   ),
                   Row(
@@ -69,8 +65,8 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                       UserMsgWidget(msg: msgController.text));
                                   chatCubit.botReply(msgController.text);
                                   msgController.clear();
-                                  // chatCubit.scrollToIndex(scrollController);
-                                } else {}
+                                  FocusScope.of(context).requestFocus(FocusNode());
+                                }
                               },
                               child: Icon(Icons.send,
                                   color: AppColors.mainColor))),

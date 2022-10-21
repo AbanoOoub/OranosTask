@@ -16,8 +16,7 @@ class PreStartScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          SizedBox(height: 50.h),
-          Image.asset('assets/images/robot.jpeg'),
+          Image.asset('assets/images/robot.jpeg',height: 750.h,width: double.infinity,),
           SizedBox(
             width: 145.w,
             height: 55.h,

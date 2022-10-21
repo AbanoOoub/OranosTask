@@ -5,7 +5,7 @@ import 'package:oranos/presentation/widgets/text_widget.dart';
 import '../../data/models/app_colors.dart';
 
 class ExpertsCardWidget extends StatefulWidget {
-  ExpertsCardWidget(
+  const ExpertsCardWidget(
       {Key? key,
       required this.expertName,
       required this.expertImg,
@@ -41,61 +41,73 @@ class _ExpertsCardWidgetState extends State<ExpertsCardWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 150.w,
-              child: ClipRRect(
-                child: Image.asset(widget.expertImg,fit: BoxFit.cover),
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(15.r),
-                    topLeft: Radius.circular(15.r)),
+            Expanded(
+              flex: 7,
+              child: SizedBox(
+                height: 150.w,
+                child: ClipRRect(
+                  child: Image.asset(widget.expertImg,fit: BoxFit.cover),
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(15.r),
+                      topLeft: Radius.circular(15.r)),
+                ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 5.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(Icons.star, color: AppColors.yellow),
-                  CustomText(
-                      text: widget.expertRate.toString(),
-                      fontSize: 15.sp,
-                      textAlign: TextAlign.start,
-                      fontWeight: FontWeight.w300,
-                      textColor: AppColors.mainTextColor),
-                  SizedBox(width: 80.w),
-                  Padding(
-                    padding: EdgeInsets.all(5.w),
-                    child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            expertIsFav = !expertIsFav;
-                          });
-                        },
-                        child: Icon(Icons.favorite,
-                            color: expertIsFav
-                                ? AppColors.red
-                                : AppColors.secondColor)),
-                  ),
-                ],
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding: EdgeInsets.only(left: 5.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.star, color: AppColors.yellow),
+                    CustomText(
+                        text: "(${widget.expertRate.toString()})",
+                        fontSize: 18.sp,
+                        textAlign: TextAlign.start,
+                        fontWeight: FontWeight.w300,
+                        textColor: AppColors.mainTextColor),
+                    SizedBox(width: 80.w),
+                    Padding(
+                      padding: EdgeInsets.all(5.w),
+                      child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              expertIsFav = !expertIsFav;
+                            });
+                          },
+                          child: Icon(Icons.favorite,
+                              color: expertIsFav
+                                  ? AppColors.red
+                                  : AppColors.secondColor)),
+                    ),
+                  ],
+                ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 10.w),
-              child: CustomText(
-                  text: widget.expertName,
-                  fontSize: 18.sp,
-                  textAlign: TextAlign.start,
-                  fontWeight: FontWeight.w400,
-                  textColor: AppColors.mainTextColor),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: EdgeInsets.only(left: 10.w),
+                child: CustomText(
+                    text: widget.expertName,
+                    fontSize: 18.sp,
+                    textAlign: TextAlign.start,
+                    fontWeight: FontWeight.w400,
+                    textColor: AppColors.mainTextColor),
+              ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 10.w),
-              child: CustomText(
-                  text: widget.expertTrack,
-                  fontSize: 14.sp,
-                  textAlign: TextAlign.start,
-                  fontWeight: FontWeight.w400,
-                  textColor: AppColors.mainTextColor),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: EdgeInsets.only(left: 10.w),
+                child: CustomText(
+                    text: widget.expertTrack,
+                    fontSize: 14.sp,
+                    textAlign: TextAlign.start,
+                    fontWeight: FontWeight.w400,
+                    textColor: AppColors.mainTextColor),
+              ),
             ),
           ],
         ),

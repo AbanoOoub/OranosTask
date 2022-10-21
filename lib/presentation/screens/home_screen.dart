@@ -3,11 +3,47 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:oranos/data/models/app_colors.dart';
 import 'package:oranos/presentation/widgets/experts_card_widget.dart';
+import 'package:oranos/presentation/widgets/online_expert_widget.dart';
 import 'package:oranos/presentation/widgets/section_label_widget.dart';
 import 'package:oranos/presentation/widgets/text_widget.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
+
+  final List<Widget> expertInfoList = [
+    const ExpertsCardWidget(
+        expertName: "Abanoub Lotfy",
+        expertImg: "assets/images/person1.jpg",
+        expertRate: 5.0,
+        expertTrack: "Supply Chain"),
+    const ExpertsCardWidget(
+        expertName: "Merna Adel",
+        expertImg: "assets/images/person2.jpg",
+        expertRate: 5.0,
+        expertTrack: "Translator"),
+    const ExpertsCardWidget(
+        expertName: "Abanoub Lotfy",
+        expertImg: "assets/images/person1.jpg",
+        expertRate: 5.0,
+        expertTrack: "Information Technology"),
+    const ExpertsCardWidget(
+        expertName: "Merna Adel",
+        expertImg: "assets/images/person2.jpg",
+        expertRate: 5.0,
+        expertTrack: "Human Resource"),
+  ];
+
+  final List<Widget> onlineExpertList = [
+    const OnlineExpertWidget(expertName: "Abanoub"),
+    const OnlineExpertWidget(expertName: "Osama"),
+    const OnlineExpertWidget(expertName: "Merna"),
+    const OnlineExpertWidget(expertName: "Adel"),
+    const OnlineExpertWidget(expertName: "Lotfy"),
+    const OnlineExpertWidget(expertName: "Ahmed"),
+    const OnlineExpertWidget(expertName: "Mostafa"),
+    const OnlineExpertWidget(expertName: "Heba"),
+    const OnlineExpertWidget(expertName: "Nour"),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,237 +53,23 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               const SectionLabelWidget(text: "Recommended Experts"),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ExpertsCardWidget(
-                        expertName: "Abanoub Lotfy",
-                        expertImg: "assets/images/person1.jpg",
-                        expertRate: 5.0,
-                        expertTrack: "Supply Chain"),
-                    ExpertsCardWidget(
-                        expertName: "Merna Adel",
-                        expertImg: "assets/images/person2.jpg",
-                        expertRate: 5.0,
-                        expertTrack: "Translator"),
-                    ExpertsCardWidget(
-                        expertName: "Abanoub Lotfy",
-                        expertImg: "assets/images/person1.jpg",
-                        expertRate: 5.0,
-                        expertTrack: "Information Technology"),
-                    ExpertsCardWidget(
-                        expertName: "Merna Adel",
-                        expertImg: "assets/images/person2.jpg",
-                        expertRate: 5.0,
-                        expertTrack: "Human Resource"),
-                  ],
+              SizedBox(
+                width: double.infinity,
+                height: 250.h,
+                child: ListView.builder(
+                  itemBuilder: (context, index) => expertInfoList[index],
+                  itemCount: expertInfoList.length,
+                  scrollDirection: Axis.horizontal,
                 ),
               ),
               const SectionLabelWidget(text: "Online Experts"),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding:  EdgeInsets.all(5.w),
-                      child: Column(
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.topEnd,
-                            children: [
-                              ClipRRect(
-                                child: CircleAvatar(
-                                  backgroundColor: AppColors.secondColor,
-                                  radius: 25.r,
-                                  child:
-                                      Icon(Icons.person,color: AppColors.white),
-                                ),
-                              ),
-                              CircleAvatar(
-                                radius: 5.r,
-                                backgroundColor: AppColors.green,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                          CustomText(
-                            textColor: AppColors.mainTextColor,
-                            text: 'Abanoub Lotfy',
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.all(5.w),
-                      child: Column(
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.topEnd,
-                            children: [
-                              ClipRRect(
-                                child: CircleAvatar(
-                                  backgroundColor: AppColors.secondColor,
-                                  radius: 25.r,
-                                  child:
-                                  Icon(Icons.person,color: AppColors.white),
-                                ),
-                              ),
-                              CircleAvatar(
-                                radius: 5.r,
-                                backgroundColor: AppColors.green,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                          CustomText(
-                            textColor: AppColors.mainTextColor,
-                            text: 'Abanoub Lotfy',
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.all(5.w),
-                      child: Column(
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.topEnd,
-                            children: [
-                              ClipRRect(
-                                child: CircleAvatar(
-                                  backgroundColor: AppColors.secondColor,
-                                  radius: 25.r,
-                                  child:
-                                  Icon(Icons.person,color: AppColors.white),
-                                ),
-                              ),
-                              CircleAvatar(
-                                radius: 5.r,
-                                backgroundColor: AppColors.green,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                          CustomText(
-                            textColor: AppColors.mainTextColor,
-                            text: 'Abanoub Lotfy',
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.all(5.w),
-                      child: Column(
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.topEnd,
-                            children: [
-                              ClipRRect(
-                                child: CircleAvatar(
-                                  backgroundColor: AppColors.secondColor,
-                                  radius: 25.r,
-                                  child:
-                                  Icon(Icons.person,color: AppColors.white),
-                                ),
-                              ),
-                              CircleAvatar(
-                                radius: 5.r,
-                                backgroundColor: AppColors.green,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                          CustomText(
-                            textColor: AppColors.mainTextColor,
-                            text: 'Abanoub Lotfy',
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.all(5.w),
-                      child: Column(
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.topEnd,
-                            children: [
-                              ClipRRect(
-                                child: CircleAvatar(
-                                  backgroundColor: AppColors.secondColor,
-                                  radius: 25.r,
-                                  child:
-                                  Icon(Icons.person,color: AppColors.white),
-                                ),
-                              ),
-                              CircleAvatar(
-                                radius: 5.r,
-                                backgroundColor: AppColors.green,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                          CustomText(
-                            textColor: AppColors.mainTextColor,
-                            text: 'Abanoub Lotfy',
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.all(5.w),
-                      child: Column(
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.topEnd,
-                            children: [
-                              ClipRRect(
-                                child: CircleAvatar(
-                                  backgroundColor: AppColors.secondColor,
-                                  radius: 25.r,
-                                  child:
-                                  Icon(Icons.person,color: AppColors.white),
-                                ),
-                              ),
-                              CircleAvatar(
-                                radius: 5.r,
-                                backgroundColor: AppColors.green,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                          CustomText(
-                            textColor: AppColors.mainTextColor,
-                            text: 'Abanoub Lotfy',
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+              SizedBox(
+                width: double.infinity,
+                height: 150.h,
+                child: ListView.builder(
+                  itemBuilder: (context, index) => onlineExpertList[index],
+                  itemCount: onlineExpertList.length,
+                  scrollDirection: Axis.horizontal,
                 ),
               ),
             ],

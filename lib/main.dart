@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:oranos/data/models/app_routes.dart';
 import 'package:oranos/presentation/screens/get_started_screen.dart';
@@ -14,6 +15,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   CacheHelper.init();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
   runApp(const MyApp());
 }
 
@@ -34,8 +36,9 @@ class MyApp extends StatelessWidget {
           routes: {
             AppRoutes.startScreenRoute: (context) => const StartScreen(),
             AppRoutes.preStartScreenRoute: (context) => const PreStartScreen(),
-            AppRoutes.getStartedScreenRoute: (context) =>  const GetStartedScreen(),
-            AppRoutes.navigationScreenRoute: (context) =>   NavigationScreen(),
+            AppRoutes.getStartedScreenRoute: (context) =>
+                const GetStartedScreen(),
+            AppRoutes.navigationScreenRoute: (context) => NavigationScreen(),
           },
         );
       },
