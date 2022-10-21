@@ -8,16 +8,11 @@ import 'package:oranos/presentation/widgets/user_msg_widget.dart';
 import '../../data/models/app_routes.dart';
 import '../widgets/text_form_field_widget.dart';
 
-class GetStartedScreen extends StatefulWidget {
-  const GetStartedScreen({Key? key}) : super(key: key);
+class GetStartedScreen extends StatelessWidget {
+  GetStartedScreen({Key? key}) : super(key: key);
 
-  @override
-  State<GetStartedScreen> createState() => _GetStartedScreenState();
-}
-
-class _GetStartedScreenState extends State<GetStartedScreen> {
-  TextEditingController msgController = TextEditingController();
-  ScrollController scrollController = ScrollController();
+  final TextEditingController msgController = TextEditingController();
+  final ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,4 +75,5 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
       ),
     );
   }
+
 }

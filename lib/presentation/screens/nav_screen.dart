@@ -5,14 +5,9 @@ import 'package:oranos/business%20logic/navigation_screen_logic/navigation_cubit
 import 'package:oranos/data/models/app_colors.dart';
 import 'package:oranos/presentation/screens/home_screen.dart';
 
-class NavigationScreen extends StatefulWidget {
+class NavigationScreen extends StatelessWidget {
   const NavigationScreen({Key? key}) : super(key: key);
 
-  @override
-  State<NavigationScreen> createState() => _NavigationScreenState();
-}
-
-class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

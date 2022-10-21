@@ -36,9 +36,8 @@ class MyApp extends StatelessWidget {
           routes: {
             AppRoutes.startScreenRoute: (context) => const StartScreen(),
             AppRoutes.preStartScreenRoute: (context) => const PreStartScreen(),
-            AppRoutes.getStartedScreenRoute: (context) =>
-                const GetStartedScreen(),
-            AppRoutes.navigationScreenRoute: (context) => NavigationScreen(),
+            AppRoutes.getStartedScreenRoute: (context) => GetStartedScreen(),
+            AppRoutes.navigationScreenRoute: (context) => const NavigationScreen(),
           },
         );
       },
